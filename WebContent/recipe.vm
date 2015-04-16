@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>秀厨_菜谱浏览</title>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="http://graduation-design.github.io/cooking/dist/styles/main.css
+">
+  <!-- endbuild-->
+
+  <!-- build:css styles/cookbook.css -->
+  <link rel="stylesheet" href="http://graduation-design.github.io/cooking/dist/styles/cookbook.css
+">
+  <!-- endbuild-->
+
+  <!-- build:js bower_components/webcomponentsjs/webcomponents.min.js -->
+  <script src="http://graduation-design.github.io/cooking/dist/bower_components/webcomponentsjs/webcomponents.min.js
+"></script>
+  <!-- endbuild -->
+
+  <!-- will be replaced with elements/elements.vulcanized.html -->
+  <link rel="import" href="http://graduation-design.github.io/cooking/dist/elements/elements.vulcanized.html">
+  <!-- endreplace-->
+</head>
+
+<body unresolved>
+<template is="auto-binding" id="cookbook">
+  <top-nav>
+    <nav-item url="#">首页</nav-item>
+    <nav-item url="#">菜谱</nav-item>
+    <nav-item url="#">朋友圈</nav-item>
+  </top-nav>
+  <div class="main-wrapper">
+    <h1 class="cookbook_title">${recipename}</h1>
+    <section class="main_info">
+      <img class="food_cover" src="${recipeimg}"/>
+
+      <div class="story sec">
+        <h2 class="section_title">美食故事</h2>
+        <div class="story_content card">
+          ${recipebg}
+        </div>
+      </div>
+
+      <div class="ingredients sec">
+        <h2 class="section_title">
+          食材
+        </h2>
+        <ul class="ingredients_list card">
+        #foreach($element in $materials)
+          <li><span class="food_name">$element.get("material")</span><span class="food_amount">$element.get("dosage")</span></li>
+        #end
+        </ul>
+       
+      </div>
+
+      <div class="step sec">
+        <h2 class="section_title">跟我做</h2>
+        <ol class="step_list card">
+        #foreach($step in $steps)
+          <li>
+            <div class="step_detail">$step.get("step")</div>
+            <img class="step_pic"
+                 src="$step.get("stepimg")" )/></li>
+
+        #end          
+        
+        </ol>
+      </div>
+
+      <div class="tips sec">
+        <h2 class="section_title">小贴士</h2>
+        <ol class="tips_content card">
+          <li>
+            因为我是大烤盘，一盘出两卷，所以就用油纸演示一下，就像我这样凉了以后直接用油布卷起来，先定型，定型一会儿，就可以打开，再抹奶油夹水果。奶油尽量打的硬一点，终于你们打奶油不用怕粗糙了，放心打吧！卷紧卷起，将边缘压在收口处。
+          </li>
+          <li>关于过筛，我特意称了我的鸡蛋，美国鸡蛋大，每个都有65g，所以蛋黄糊并不稠，亲们尽量不要使用小鸡蛋、柴鸡蛋，如果普遍都鸡蛋小，那就稍微多加一点牛奶，调到糊用刮刀慢慢刮几下就可以过去的程度.</li>
+          <li>我的筛网有耳朵钩，可以挂在盆子边缘，所以我干活不需要家人帮忙.</li>
+          <li>关于我使用的塑料包装盒，是我在美国本地买的，所以没有办法给你们提供购买方式，不过现在找到一家尺寸很好，要么等我们的美女@夏天1314从上海回来，让她去磨，给你们谈优惠她还有一套滴。</li>
+        </ol>
+      </div>
+    </section><section class="other_info">
+      <user-card avatar="http://lorempixel.com/80/80" userName="张三家的李四" isFollow="false">
+        没事就去做点儿好吃的啊~
+      </user-card>
+    </section>
+  </div>
+</template>
+
+<!-- build:js scripts/app.js -->
+<script src="http://graduation-design.github.io/cooking/dist/scripts/cookbook.js"></script>
+<!-- endbuild-->
+</body>
+
+</html>
